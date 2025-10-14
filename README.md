@@ -1,6 +1,10 @@
-# Mindojo Landing Page
+# Mindojo
 
-A Next.js landing page for Mindojo - AI-powered PDF to flashcards conversion.
+AI-powered PDF to flashcards conversion webapp project.
+
+## Overview
+
+Mindojo is a comprehensive solution for converting PDF documents into interactive flashcards for efficient learning. The project includes a Next.js landing page and the core webapp functionality.
 
 ## Getting Started
 
@@ -79,3 +83,4 @@ This project is ready for deployment on Vercel, Netlify, or any other Next.js-co
 - ✅ Modern UI components with Radix UI
 - ✅ TypeScript support
 - ✅ SEO optimized
+- ✅ AI-powered PDF to flashcard conversion
