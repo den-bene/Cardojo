@@ -12,23 +12,54 @@ export function HeroSection() {
   const [email, setEmail] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState("")
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
+    setError("")
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500))
+    // Basic email validation
+    if (!validateEmail(email)) {
+      setError('Please enter a valid email address')
+      setIsLoading(false)
+      return
+    }
     
-    console.log("[v0] Email submitted:", email)
-    setIsLoading(false)
-    setIsSubmitted(true)
-    
-    // Reset after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setEmail("")
-    }, 3000)
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong')
+      }
+
+      console.log('Email sent successfully:', data)
+      setIsSubmitted(true)
+      
+      // Reset after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false)
+        setEmail("")
+      }, 3000)
+    } catch (err) {
+      console.error('Error submitting email:', err)
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -135,6 +166,11 @@ export function HeroSection() {
                 )}
               </Button>
             </div>
+            {error && (
+              <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-md px-3 py-2 animate-fade-in">
+                {error}
+              </p>
+            )}
             {isSubmitted && (
               <p className="text-sm text-green-600 bg-green-50 border border-green-200 rounded-md px-3 py-2 animate-fade-in">
                 Grazie! Ti avviseremo al lancio
