@@ -30,7 +30,7 @@ const benefits = [
 
 export function BenefitsSection() {
   return (
-    <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <DecorativeLantern
         className="absolute top-16 left-[8%] w-20 h-26 opacity-70 animate-float-delayed animate-swing"
         variant="red"
@@ -56,11 +56,11 @@ export function BenefitsSection() {
       />
 
       <div className="container mx-auto max-w-6xl relative z-10">
-        <div className="text-center space-y-4 mb-16 animate-fade-in-up">
+        <div className="text-center space-y-3 mb-12 animate-fade-in-up">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-balance">
             Perché Scegliere{" "}
             <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-              Mindojo
+              Cardojo
             </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
@@ -74,7 +74,7 @@ export function BenefitsSection() {
             return (
               <div
                 key={index}
-                className="group p-8 rounded-2xl bg-card border border-border hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-up"
+                className="group p-6 md:p-7 rounded-2xl bg-card border border-border hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="space-y-4">
@@ -83,7 +83,7 @@ export function BenefitsSection() {
                   >
                     <Icon className="w-7 h-7 text-white" />
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-1.5">
                     <h3 className="text-xl font-semibold text-foreground">{benefit.title}</h3>
                     <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
                   </div>

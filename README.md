@@ -1,10 +1,10 @@
-# Mindojo
+# Cardojo
 
 AI-powered PDF to flashcards conversion webapp project.
 
 ## Overview
 
-Mindojo is a comprehensive solution for converting PDF documents into interactive flashcards for efficient learning. The project includes a Next.js landing page and the core webapp functionality.
+Cardojo is a comprehensive solution for converting PDF documents into interactive flashcards for efficient learning. The project includes a Next.js landing page and the core webapp functionality.
 
 ## Getting Started
 

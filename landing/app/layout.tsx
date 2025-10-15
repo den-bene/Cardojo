@@ -8,7 +8,7 @@ import "./globals.css"
 import { Suspense } from "react"
 
 export const metadata: Metadata = {
-  title: "Mindojo - PDF → Flashcards in un Click",
+  title: "Cardojo - PDF → Flashcards in un Click",
   description: "L'AI legge i tuoi appunti e crea flashcards pronte per Anki, Quizlet o qualsiasi app di studio.",
   generator: "v0.app",
 }

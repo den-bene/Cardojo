@@ -10,46 +10,45 @@ import { DecorativeLantern } from "./decorative-lantern"
 
 export function FinalCTA() {
   const [email, setEmail] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsLoading(true)
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1500))
+    
     console.log("[v0] Email submitted:", email)
+    setIsLoading(false)
+    setIsSubmitted(true)
+    
+    // Reset after 3 seconds
+    setTimeout(() => {
+      setIsSubmitted(false)
+      setEmail("")
+    }, 3000)
   }
 
   return (
-    <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <DecorativeLantern
-        className="absolute top-12 left-[10%] w-20 h-28 opacity-85 animate-float animate-swing"
+        className="absolute top-8 left-[5%] w-16 h-20 opacity-75 animate-float animate-swing"
         variant="red"
       />
       <DecorativeLantern
-        className="absolute top-16 right-[10%] w-20 h-28 opacity-85 animate-float-delayed animate-swing"
+        className="absolute top-12 right-[5%] w-18 h-24 opacity-80 animate-float-delayed animate-swing"
         variant="orange"
       />
-      <DecorativeLantern className="absolute top-20 left-[25%] w-16 h-22 opacity-70 animate-float" variant="gold" />
+      <DecorativeLantern className="absolute bottom-8 left-[15%] w-14 h-18 opacity-65 animate-float" variant="gold" />
       <DecorativeLantern
-        className="absolute top-18 right-[25%] w-16 h-22 opacity-70 animate-float-delayed"
+        className="absolute bottom-12 right-[15%] w-16 h-20 opacity-70 animate-float-delayed"
         variant="red"
       />
 
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-secondary -z-10" />
 
-      {/* Decorative elements inspired by dojo */}
-      <div className="absolute top-10 left-10 w-24 h-24 opacity-10">
-        <svg viewBox="0 0 100 100" className="w-full h-full">
-          <text
-            x="50"
-            y="50"
-            fontSize="50"
-            fontWeight="bold"
-            textAnchor="middle"
-            dominantBaseline="middle"
-            fill="white"
-          >
-            道
-          </text>
-        </svg>
-      </div>
 
       <div className="container mx-auto max-w-4xl relative z-10">
         <div className="text-center space-y-8 animate-fade-in-up">
@@ -74,12 +73,31 @@ export function FinalCTA() {
               <Button
                 type="submit"
                 size="lg"
-                className="h-14 px-8 rounded-2xl bg-white text-primary hover:bg-white/90 transition-colors font-semibold group shadow-lg"
+                disabled={isLoading || isSubmitted}
+                className="h-14 px-8 rounded-2xl bg-white text-primary font-semibold group shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 ease-out hover:bg-white/90 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 active:scale-95 active:translate-y-[1px]"
               >
-                Inizia Gratis
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                {isLoading ? (
+                  <>
+                    <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin mr-2" />
+                    Caricamento...
+                  </>
+                ) : isSubmitted ? (
+                  <>
+                    ✓ Inviato!
+                  </>
+                ) : (
+                  <>
+                    Inizia Gratis
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
               </Button>
             </div>
+            {isSubmitted && (
+              <p className="text-sm text-white/95 bg-white/10 border border-white/20 rounded-md px-3 py-2 drop-shadow animate-fade-in">
+                Grazie! Ti avviseremo al lancio
+              </p>
+            )}
             <p className="text-sm text-white/90 flex items-center justify-center gap-2 drop-shadow">
               <span className="inline-block w-2 h-2 rounded-full bg-green-400 shadow-lg" />
               Nessuna carta di credito richiesta • Inizia subito

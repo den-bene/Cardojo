@@ -10,14 +10,29 @@ import { DecorativeLantern } from "./decorative-lantern"
 
 export function HeroSection() {
   const [email, setEmail] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsLoading(true)
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1500))
+    
     console.log("[v0] Email submitted:", email)
+    setIsLoading(false)
+    setIsSubmitted(true)
+    
+    // Reset after 3 seconds
+    setTimeout(() => {
+      setIsSubmitted(false)
+      setEmail("")
+    }, 3000)
   }
 
   return (
-    <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative pt-16 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <DecorativeLantern
         className="absolute top-16 left-[8%] w-20 h-28 opacity-90 animate-float animate-swing"
         variant="red"
@@ -36,11 +51,11 @@ export function HeroSection() {
         {/* Warm wooden background gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#FFF8E7] via-[#FFE4B5] to-[#FFDAB9]" />
 
-        {/* Dojo image as subtle background element */}
+        {/* Background image */}
         <div
           className="absolute inset-0 opacity-[0.08] bg-center bg-cover"
           style={{
-            backgroundImage: "url('/images/dojo-interior.png')",
+            backgroundImage: "url('/images/background.png')",
             backgroundBlendMode: "multiply",
           }}
         />
@@ -71,26 +86,10 @@ export function HeroSection() {
           </svg>
         </div>
 
-        {/* Chinese calligraphy-inspired decorative element */}
-        <div className="absolute top-1/4 right-[5%] w-32 h-32 opacity-5">
-          <svg viewBox="0 0 100 100" className="w-full h-full">
-            <text
-              x="50"
-              y="50"
-              fontSize="60"
-              fontWeight="bold"
-              textAnchor="middle"
-              dominantBaseline="middle"
-              fill="#8B4513"
-            >
-              道
-            </text>
-          </svg>
-        </div>
       </div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
-        <div className="text-center space-y-8 animate-fade-in-up">
+        <div className="text-center space-y-6 animate-fade-in-up">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium backdrop-blur-sm border border-primary/20">
             <Sparkles className="w-4 h-4" />
@@ -126,11 +125,28 @@ export function HeroSection() {
               <Button
                 type="submit"
                 size="lg"
-                className="h-12 px-8 rounded-xl bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-primary-foreground font-semibold shadow-lg"
+                disabled={isLoading || isSubmitted}
+                className="h-12 px-8 rounded-xl bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 ease-out hover:shadow-xl hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 active:scale-95 active:translate-y-[1px]"
               >
-                Inizia Gratis
+                {isLoading ? (
+                  <>
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                    Caricamento...
+                  </>
+                ) : isSubmitted ? (
+                  <>
+                    ✓ Inviato!
+                  </>
+                ) : (
+                  'Inizia Gratis'
+                )}
               </Button>
             </div>
+            {isSubmitted && (
+              <p className="text-sm text-green-600 bg-green-50 border border-green-200 rounded-md px-3 py-2 animate-fade-in">
+                Grazie! Ti avviseremo al lancio
+              </p>
+            )}
             <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
               <span className="inline-block w-2 h-2 rounded-full bg-green-500" />
               Piano gratuito sempre disponibile • Nessuna carta richiesta
