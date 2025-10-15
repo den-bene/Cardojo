@@ -33,17 +33,21 @@ export function FinalCTA() {
 
   return (
     <section className="relative py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Lanterns with responsive positioning */}
       <DecorativeLantern
-        className="absolute top-8 left-[5%] w-16 h-20 opacity-75 animate-float animate-swing"
+        className="absolute top-8 left-4 sm:left-[5%] lg:left-[3%] xl:left-[5%] w-14 sm:w-16 lg:w-15 xl:w-16 h-16 sm:h-20 lg:h-18 xl:h-20 opacity-75 animate-float animate-swing hidden sm:block"
         variant="red"
       />
       <DecorativeLantern
-        className="absolute top-12 right-[5%] w-18 h-24 opacity-80 animate-float-delayed animate-swing"
+        className="absolute top-12 right-4 sm:right-[5%] lg:right-[3%] xl:right-[5%] w-16 sm:w-18 lg:w-17 xl:w-18 h-20 sm:h-24 lg:h-22 xl:h-24 opacity-80 animate-float-delayed animate-swing"
         variant="orange"
       />
-      <DecorativeLantern className="absolute bottom-8 left-[15%] w-14 h-18 opacity-65 animate-float" variant="gold" />
+      <DecorativeLantern 
+        className="absolute bottom-8 left-8 sm:left-[15%] lg:left-[10%] xl:left-[15%] w-12 sm:w-14 lg:w-13 xl:w-14 h-14 sm:h-18 lg:h-16 xl:h-18 opacity-65 animate-float hidden md:block" 
+        variant="gold" 
+      />
       <DecorativeLantern
-        className="absolute bottom-12 right-[15%] w-16 h-20 opacity-70 animate-float-delayed"
+        className="absolute bottom-12 right-8 sm:right-[15%] lg:right-[10%] xl:right-[15%] w-14 sm:w-16 lg:w-15 xl:w-16 h-16 sm:h-20 lg:h-18 xl:h-20 opacity-70 animate-float-delayed hidden md:block"
         variant="red"
       />
 

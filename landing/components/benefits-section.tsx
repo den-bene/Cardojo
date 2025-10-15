@@ -31,29 +31,23 @@ const benefits = [
 export function BenefitsSection() {
   return (
     <section className="relative py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Lanterns with responsive positioning - hidden on small screens */}
       <DecorativeLantern
-        className="absolute top-16 left-[8%] w-20 h-26 opacity-70 animate-float-delayed animate-swing"
+        className="absolute top-16 left-4 sm:left-[8%] lg:left-[5%] xl:left-[8%] w-16 sm:w-20 lg:w-18 xl:w-20 h-20 sm:h-26 lg:h-24 xl:h-26 opacity-70 animate-float-delayed animate-swing hidden md:block"
         variant="red"
       />
-      <DecorativeLantern className="absolute bottom-20 right-[12%] w-18 h-24 opacity-65 animate-float" variant="gold" />
+      <DecorativeLantern 
+        className="absolute bottom-20 right-4 sm:right-[12%] lg:right-[8%] xl:right-[12%] w-16 sm:w-18 lg:w-17 xl:w-18 h-20 sm:h-24 lg:h-22 xl:h-24 opacity-65 animate-float hidden md:block" 
+        variant="gold" 
+      />
       <DecorativeLantern
-        className="absolute top-24 right-[6%] w-16 h-22 opacity-55 animate-float-delayed"
+        className="absolute top-24 right-2 sm:right-[6%] lg:right-[4%] xl:right-[6%] w-14 sm:w-16 lg:w-15 xl:w-16 h-18 sm:h-22 lg:h-20 xl:h-22 opacity-55 animate-float-delayed hidden md:block"
         variant="orange"
       />
 
       <div className="absolute top-20 right-10 w-32 h-32 rounded-full bg-primary/5 blur-3xl" />
       <div className="absolute bottom-20 left-10 w-40 h-40 rounded-full bg-secondary/5 blur-3xl" />
 
-      <div
-        className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #8B4513 1px, transparent 1px),
-            linear-gradient(to bottom, #8B4513 1px, transparent 1px)
-          `,
-          backgroundSize: "60px 60px",
-        }}
-      />
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center space-y-3 mb-12 animate-fade-in-up">

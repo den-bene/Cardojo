@@ -33,17 +33,21 @@ export function HeroSection() {
 
   return (
     <section className="relative pt-16 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Lanterns with responsive positioning */}
       <DecorativeLantern
-        className="absolute top-16 left-[8%] w-20 h-28 opacity-90 animate-float animate-swing"
+        className="absolute top-16 left-4 sm:left-[8%] lg:left-[5%] xl:left-[8%] w-16 sm:w-20 lg:w-18 xl:w-20 h-20 sm:h-28 lg:h-26 xl:h-28 opacity-90 animate-float animate-swing hidden sm:block"
         variant="red"
       />
       <DecorativeLantern
-        className="absolute top-24 right-[12%] w-24 h-32 opacity-85 animate-float-delayed animate-swing"
+        className="absolute top-24 right-4 sm:right-[12%] lg:right-[8%] xl:right-[12%] w-20 sm:w-24 lg:w-22 xl:w-24 h-24 sm:h-32 lg:h-30 xl:h-32 opacity-85 animate-float-delayed animate-swing"
         variant="orange"
       />
-      <DecorativeLantern className="absolute top-20 right-[5%] w-16 h-22 opacity-75 animate-float" variant="gold" />
+      <DecorativeLantern 
+        className="absolute top-20 right-2 sm:right-[5%] lg:right-[3%] xl:right-[5%] w-14 sm:w-16 lg:w-15 xl:w-16 h-18 sm:h-22 lg:h-20 xl:h-22 opacity-75 animate-float hidden sm:block" 
+        variant="gold" 
+      />
       <DecorativeLantern
-        className="absolute top-28 left-[15%] w-14 h-20 opacity-70 animate-float-delayed"
+        className="absolute top-28 left-8 sm:left-[15%] lg:left-[10%] xl:left-[15%] w-12 sm:w-14 lg:w-13 xl:w-14 h-16 sm:h-20 lg:h-18 xl:h-20 opacity-70 animate-float-delayed hidden md:block"
         variant="red"
       />
 
@@ -60,17 +64,6 @@ export function HeroSection() {
           }}
         />
 
-        {/* Shoji screen pattern overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage: `
-            linear-gradient(to right, #8B4513 3px, transparent 3px),
-            linear-gradient(to bottom, #8B4513 3px, transparent 3px)
-          `,
-            backgroundSize: "100px 100px",
-          }}
-        />
 
         {/* Decorative bamboo silhouettes */}
         <div className="absolute bottom-0 left-0 w-full h-40 opacity-15">

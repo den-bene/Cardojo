@@ -27,22 +27,7 @@ const problems = [
 export function ProblemSection() {
   return (
     <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-muted/30">
-      <DecorativeLantern className="absolute top-10 right-[5%] w-18 h-24 opacity-60 animate-float" variant="orange" />
-      <DecorativeLantern
-        className="absolute top-16 left-[8%] w-16 h-22 opacity-50 animate-float-delayed"
-        variant="red"
-      />
 
-      <div
-        className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #8B4513 1px, transparent 1px),
-            linear-gradient(to bottom, #8B4513 1px, transparent 1px)
-          `,
-          backgroundSize: "60px 60px",
-        }}
-      />
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center space-y-4 mb-16 animate-fade-in-up">
