@@ -131,8 +131,8 @@ export function HeroSection() {
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl text-foreground/80 max-w-3xl mx-auto text-pretty leading-relaxed">
-            L'AI legge i tuoi appunti e crea flashcards pronte per Anki, Quizlet o qualsiasi app di studio. Niente
-            copia-incolla, niente perdite di tempo.
+            L'AI legge i tuoi appunti e crea flashcards pronte per Anki, Quizlet o qualsiasi app di studio. Benvenuto nel tuo Cardojo: il luogo dove alleni e affili la tua mente.
+            Niente copia-incolla, niente perdite di tempo.
           </p>
 
           {/* Email Form */}
