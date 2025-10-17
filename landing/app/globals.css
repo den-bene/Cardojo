@@ -169,3 +169,26 @@
   animation: swing 3s ease-in-out infinite;
   transform-origin: top center;
 }
+
+@keyframes swing {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+.animate-swing {
+  animation: swing 3s ease-in-out infinite;
+}
+
+/* Lantern glow effect */
+@keyframes lantern-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 107, 53, 0.8);
+  }
+}

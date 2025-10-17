@@ -1,0 +1,17 @@
+:root {
+    /* Dojo Color Palette - Rosso/Arancione */
+    --dojo-red: #DC143C;
+    --dojo-orange: #FF6B35;
+    --dojo-deep-red: #8B0000;
+    --dojo-light-orange: #FFA07A;
+    --dojo-gold: #FFD700;
+    
+    /* Background Colors */
+    --dojo-bg-dark: #1a0f0f;
+    --dojo-bg-paper: #F5E6D3;
+    
+    /* Accent Colors */
+    --lantern-glow: rgba(255, 107, 53, 0.3);
+    --paper-texture: rgba(245, 230, 211, 0.05);
+  }
+  

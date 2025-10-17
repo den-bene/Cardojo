@@ -123,3 +123,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+@import '../styles/dojo-theme.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ... resto del codice esistente ... */
+
+@layer base {
+  :root {
+    --background: var(--dojo-bg-dark);
+    --foreground: var(--dojo-gold);
+    --card: var(--dojo-bg-paper);
+    --card-foreground: var(--dojo-deep-red);
+  }
+}
